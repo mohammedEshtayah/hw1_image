@@ -14,6 +14,7 @@ def  log_transformation():
     cv2.imshow('image',im1)
     cv2.waitKey(0)
 def  power_transformation():
+    #im=cr^y
     cv2.imshow('image',1* np.power(im,1))
     cv2.waitKey(0)
 
