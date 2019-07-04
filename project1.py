@@ -2,9 +2,9 @@ import cv2
 import numpy as np;
 import math
 im=cv2.imread('3(a).tif',0)
- #print('{}'.format(a.shape[0])
+#print('{}'.format(a.shape[0])
 
-cv2.imshow('image',im)
+#cv2.imshow('image',im)
 cv2.waitKey(0)
 
 cv2.destroyAllWindows()
@@ -15,7 +15,9 @@ def  log_transformation():
     cv2.waitKey(0)
 def  power_transformation():
     #im=cr^y
-    cv2.imshow('image',1* np.power(im,1))
+    y=1
+    c=1
+    cv2.imshow('image',c* np.power(im,y))
     cv2.waitKey(0)
 
 def main():
