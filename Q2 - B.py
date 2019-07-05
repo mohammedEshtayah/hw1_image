@@ -3,7 +3,7 @@ import sys
 import numpy as np
 
 
-def log_transformation(original_image, factor):
+def power_transformation(original_image, factor, power):
 
     original_image = cv2.imread(original_image).astype(np.uint8)
     out = cv2.normalize(original_image.astype('float'), None, 0.0, 1.0, cv2.NORM_MINMAX)
@@ -13,10 +13,10 @@ def log_transformation(original_image, factor):
 
     for i in range(height):
         for j in range(width):
-            out[i][j] = factor * np.log((1 + out[i, j]))
+            out[i][j] = factor * np.power(out[i, j], power)
 
     cv2.imshow('original image', original_image)
-    cv2.imshow('after apply log transformation', out)
+    cv2.imshow('after apply power transformation', out)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
@@ -24,4 +24,5 @@ def log_transformation(original_image, factor):
 if __name__ == "__main__":
     org_image = str(sys.argv[1])
     f = int(sys.argv[2])
-    log_transformation(org_image, f)
+    p = float(sys.argv[3])
+    power_transformation(org_image, f, p)
