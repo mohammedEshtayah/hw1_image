@@ -1,5 +1,4 @@
 import cv2
-import sys
 import numpy as np
 from matplotlib import pyplot as plt
 
@@ -16,7 +15,7 @@ def log_transformation():
     height = np.size(original_image, 0)
     width = np.size(original_image, 1)
 
-    factor = 5
+    factor = 1
 
     cv2.imshow('original image', original_image)
 
