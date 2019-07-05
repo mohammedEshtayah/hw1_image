@@ -3,32 +3,23 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 
-original_image = cv2.imread('Fig0308(a)(fractured_spine).tif').astype(np.uint8)
+original_image = cv2.imread('Fig0308(a)(fractured_spine).tif', 0)
 
 
-def power_transformation():
-    y = 0.4
-    c = 1
+def calc_histogram():
 
-    out = cv2.normalize(original_image.astype('float'), None, 0.0, 1.0, cv2.NORM_MINMAX)
+#    histogram = cv2.calcHist([original_image], [0], None, [256], [0, 256])
 
     height = np.size(original_image, 0)
     width = np.size(original_image, 1)
 
+    f = [0] * 256
+
     for i in range(height):
         for j in range(width):
-            out[i][j] = c * np.power(out[i, j], y)
-
-
-    cv2.imshow('original image', original_image)
-    cv2.imshow('after apply power transformation', out)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
-
-
-def calc_histogram():
-    histogram = cv2.calcHist([original_image], [0], None, [256], [0, 256])
-    plt.plot(histogram)
+            f[original_image[i][j]] = f[original_image[i][j]] + 1
+    plt.figure()
+    plt.plot(f)
     plt.show()
 
 
@@ -43,7 +34,6 @@ def equalize_hist():
 
 def main():
 
-    power_transformation()
     calc_histogram()
     equalize_hist()
 
