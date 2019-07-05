@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 
 def calc_histogram(original_image):
 
-    original_image = cv2.imread(original_image, 0)
+    original_image = cv2.imread(original_image, cv2.IMREAD_GRAYSCALE)
 
     height = np.size(original_image, 0)
     width = np.size(original_image, 1)
