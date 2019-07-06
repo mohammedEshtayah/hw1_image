@@ -17,6 +17,7 @@ def log_transformation(original_image, factor):
 
     cv2.imshow('original image', original_image)
     cv2.imshow('after apply log transformation', out)
+
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
