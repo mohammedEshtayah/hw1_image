@@ -40,6 +40,26 @@ def arithmetic_operations(first_image, second_image, operation):
             cv2.waitKey(0)
             cv2.destroyAllWindows()
 
+        elif operation == 'Multiply' or operation == 'multiply' or operation == '*':
+
+            final_image = first_image * second_image
+
+            cv2.imshow('first image', first_image)
+            cv2.imshow('second image', second_image)
+            cv2.imshow('after done arithmetic operation', final_image)
+            cv2.waitKey(0)
+            cv2.destroyAllWindows()
+
+        elif operation == 'Dividing' or operation == 'dividing' or operation == '/':
+
+            final_image = first_image // second_image
+            print (final_image)
+            cv2.imshow('first image', first_image)
+            cv2.imshow('second image', second_image)
+            cv2.imshow('after done arithmetic operation', final_image)
+            cv2.waitKey(0)
+            cv2.destroyAllWindows()
+
         else:
             print("invalid operation")
             return
